@@ -6,7 +6,7 @@ import useFetch from '../../hooks/useFetch';
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 
-import { User } from '../../types//User';
+import { User } from '../../types/User';
 
 export default function TabOneScreen() {
     const [profile, setProfile] = useState(null);
