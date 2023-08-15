@@ -1,6 +1,10 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { Pressable, useColorScheme } from 'react-native';
+import { useGetProfileQuery } from '../../redux/api';
+import { setUserProfile } from '../../redux/slices/userSlice';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import Colors from '../../constants/Colors';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
@@ -10,6 +14,18 @@ import { Avatar } from 'react-native-paper';
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const imageUrl = "https://storage.googleapis.com/styleme-solo/1682329316739-IMG_7226.PNG";
+
+  const dispatch = useDispatch();
+  const userId = '647b7a45f034f58ec0c1b0d5';
+
+  const { data: userProfile, error, isLoading } = useGetProfileQuery(userId);
+
+  useEffect(() => {
+    if (userProfile) {
+      // Dispatch an action to store the user profile in Redux store
+      dispatch(setUserProfile(userProfile));
+    }
+  }, [userProfile, dispatch]);
 
 
   return (

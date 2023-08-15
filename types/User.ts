@@ -29,5 +29,6 @@ export interface User {
   country?: string;
   looks: Look[];
   wardrobe: WardrobeItem[];
+  hasBeenActive?: boolean;
+  isActive?: boolean;
 }
-
