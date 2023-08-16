@@ -1,6 +1,7 @@
 import {Stack} from "expo-router";
 import {useSelector} from "react-redux";
 import { UserState } from "../../redux/slices/userSlice";
+import Login from "../login";
 
 export default function LandingPageLayout() {
   const user = useSelector((state: {user: UserState}) => state.user);
@@ -12,8 +13,7 @@ export default function LandingPageLayout() {
                 headerShown: false,
             }}
         >
-            <Stack.Screen name="sign-in" options={{ headerShown: false, presentation: 'modal' }}/>
-            <Stack.Screen name="sign-up" options={{ headerShown: false, presentation: 'modal' }}/>
+            <Stack.Screen name="index" />
         </Stack>
     )
 }

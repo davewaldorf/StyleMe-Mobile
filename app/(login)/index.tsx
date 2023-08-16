@@ -3,11 +3,12 @@ import { StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import { View, Text } from '../../components/Themed';
 import {  Link, router } from 'expo-router';
 import { transparent } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
+import { ExternalLink } from '../../components/ExternalLink';
 
 
 export default function LandingPage() {
   const SignIn = () => {
-    router.push('/sign-in');
+    router.push('/login');
   }
 
   const SignUp = () => { 
@@ -21,9 +22,14 @@ export default function LandingPage() {
         <Text style={styles.subTitle}>Say goodbye to fashion ruts and hello to endless inspiration at your fingertips!</Text>
       </View>
       <View style={styles.buttonsContainer} lightColor="#eee" darkColor="rgba(255,255,255,0.1)">
-        <TouchableOpacity style={styles.button} onPress={SignIn}>
+      
+        <TouchableOpacity style={styles.button} >
+        <Link href="/login" style={styles.buttonText}>
           <Text style={styles.buttonText}>Sign In</Text>
+          </Link>
         </TouchableOpacity>
+       
+
         <TouchableOpacity style={styles.button} onPress={SignUp}>
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>

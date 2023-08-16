@@ -60,6 +60,7 @@ function RootLayoutNav() {
           </Stack> :
           <Stack initialRouteName='(login)'>
             <Stack.Screen name="(login)" options={{ headerShown: false }} />
+            <Stack.Screen name="login" options={{ headerShown: false, presentation: 'modal' }} />
           </Stack>}
       </Provider>
     </ThemeProvider>
