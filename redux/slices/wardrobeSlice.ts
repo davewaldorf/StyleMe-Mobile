@@ -26,4 +26,3 @@ const wardrobeSlice = createSlice({
 export const wardrobeReducer = wardrobeSlice.reducer;
 export const { setWardrobeItems, addWardrobeItem } = wardrobeSlice.actions;
 
-export const selectWardrobeItems = (state: RootState) => state.wardrobe.wardrobeItems;

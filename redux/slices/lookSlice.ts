@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store'; 
 import { Look } from '../../types/User'; // Adjust the import path
 
 interface LookState {
@@ -26,4 +25,3 @@ const lookSlice = createSlice({
 export const lookReducer = lookSlice.reducer;
 export const { setLooks, addLook } = lookSlice.actions;
 
-export const selectLooks = (state: RootState) => state.look.looks;

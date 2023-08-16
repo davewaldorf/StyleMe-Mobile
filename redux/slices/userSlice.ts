@@ -1,10 +1,7 @@
-// userSlice.ts
-
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
 import { User } from '../../types/User';
 
-interface UserState {
+export interface UserState {
   authenticated: boolean;
   profile: User | null;
 }
@@ -32,4 +29,3 @@ const userSlice = createSlice({
 export const userReducer = userSlice.reducer;
 export const { setUserProfile, clearUserProfile } = userSlice.actions;
 
-export const selectUserProfile = (state: RootState) => state.user.profile;

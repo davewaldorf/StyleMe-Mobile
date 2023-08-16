@@ -17,7 +17,12 @@ const store = configureStore({
     getDefaultMiddleware().concat(api.middleware),
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+
+export type RootState = ReturnType<typeof store.getState> & {
+  user: ReturnType<typeof userReducer>;
+  look: ReturnType<typeof lookReducer>;
+  wardrobe: ReturnType<typeof wardrobeReducer>;
+};
 export type AppDispatch = typeof store.dispatch;
 
 export default store;
