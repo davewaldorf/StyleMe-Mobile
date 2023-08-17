@@ -2,45 +2,26 @@
 import { Text, View } from '../components/Themed';
 import Button from '../components/form/Button';
 import TextInput from '../components/form/TextInput';
+import { StyleSheet } from 'react-native';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import { Field, ErrorMessage } from 'formik';
+import  Form  from '../components/form/Form';
 
-export default function Login() { 
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email').required('Email is required'),
+  password: Yup.string().required('Password is required')
+});
+export default function Login() {
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
-    >
-      <Text style={{ color: '#223e4b', fontSize: 20, marginBottom: 16 }}>
-        Login
-      </Text>
-      <View style={{ paddingHorizontal: 32, marginBottom: 16, width: '100%' }}>
-        <TextInput
-          icon="mail"
-          placeholder="Enter your email"
-          autoCapitalize="none"
-          autoCompleteType="email"
-          keyboardType="email-address"
-          keyboardAppearance="dark"
-          returnKeyType="next"
-          returnKeyLabel="next"
-        />
-      </View>
-      <View style={{ paddingHorizontal: 32, marginBottom: 16, width: '100%' }}>
-        <TextInput
-          icon="key"
-          placeholder="Enter your password"
-          secureTextEntry
-          autoCompleteType="password"
-          autoCapitalize="none"
-          keyboardAppearance="dark"
-          returnKeyType="go"
-          returnKeyLabel="go"
-        />
-      </View>
-      <Button label="Login" onPress={() => true} />
-    </View>
+    <Form
+      inputs={[
+        { label: 'email', icon: 'email' },
+        { label: 'password', icon: 'lock' }
+      ]}
+      initialValues={{ email: '', password: '' }}
+      validationSchema={validationSchema}
+      buttonLabel="Login"
+    />
   );
 }

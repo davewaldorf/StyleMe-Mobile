@@ -15,7 +15,7 @@ export default function TextInput({ icon, ...otherProps }: TextInputProps) {
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-        height: 48,
+        height: 50,
         borderRadius: 8,
         borderColor: validationColor,
         borderWidth: StyleSheet.hairlineWidth,
