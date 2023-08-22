@@ -29,6 +29,7 @@ export default function TextInput({ icon, ...otherProps }: TextInputProps) {
         <RNTextInput
           underlineColorAndroid="transparent"
           placeholderTextColor="rgba(34, 62, 75, 0.7)"
+          secureTextEntry={icon === 'lock'}
           {...otherProps}
         />
       </View>

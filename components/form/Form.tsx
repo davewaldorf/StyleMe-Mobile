@@ -29,7 +29,7 @@ export default function Form({inputs, initialValues, validationSchema, buttonLab
         <View style={styles.container}>
           <Text style={styles.title}>LOGIN</Text>
           {inputs.map((input) => (
-            <FormInput key={input.label} label={input.label} icon={input.icon} />
+            <FormInput key={input.label} label={input.label} icon={input.icon} fieldType={input.fieldType}/>
           ))}
           <Button label={buttonLabel} onPress={handleSubmit} />
         </View>

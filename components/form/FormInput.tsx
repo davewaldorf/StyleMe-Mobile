@@ -1,19 +1,41 @@
 import { Field, ErrorMessage } from "formik";
 import { Text, View } from "../../components/Themed";
 import TextInput from "./TextInput";
+import   DatePicker   from "./DatePicker";
+import  {CountryInput}  from "./CountryInput";
+import { GenderInput } from "./GenderPicker";
 import { StyleSheet } from "react-native";
 
 export interface FormInputProps {
   label: string;
   icon: string;
+  fieldType?: string;
 } 
 
-export default function FormInput({ label, icon }: FormInputProps) {
+export default function FormInput({ fieldType, label, icon }: FormInputProps) {
+  let component;
+
+  switch (fieldType) {
+    case 'date':
+      component = DatePicker;
+      break;
+    case 'country':
+      component = CountryInput;
+      break;
+    case 'gender': 
+      component = GenderInput;
+      break;
+    default:
+      component = TextInput;
+  }
+
+  console.log(component);
+
   return (
     <View style={styles.input}>
     <Field
       name={label}
-      component={TextInput}
+      component={component}
       icon={icon}
       placeholder={`Enter your ${label}`}
       autoCapitalize="none"
